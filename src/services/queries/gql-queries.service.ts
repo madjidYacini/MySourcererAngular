@@ -67,6 +67,39 @@ export class GqlQueriesService {
       }
     }
   `;
+  GET_REPOS_COMMITS = gql`
+    {
+      viewer {
+        repositories(first: 40) {
+          nodes {
+            primaryLanguage {
+              name
+              color
+            }
+            languages(first: 40) {
+              nodes {
+                name
+              }
+              totalCount
+            }
+
+            defaultBranchRef {
+              target {
+                ... on Commit {
+                  history {
+                    totalCount
+                  }
+                  pushedDate
+                }
+              }
+            }
+          }
+          totalCount
+        }
+      }
+    }
+  `;
+
   GET_USER_RC = gql`
     query {
       viewer {

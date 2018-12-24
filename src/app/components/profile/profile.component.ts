@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { GqlQueriesService } from "../services/queries/gql-queries.service";
-import { ProfileTraitementService } from "../services/profile/profile-traitement.service";
+import { GqlQueriesService } from "../../../services/queries/gql-queries.service";
+import { ProfileTraitementService } from "../../../services/profile/profile-traitement.service";
 import { Apollo } from "apollo-angular";
-import { Profile } from "../interfaces/profile.i";
 @Component({
   selector: "app-profile",
   templateUrl: "./profile.component.html",
@@ -20,10 +19,14 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.apollo
       .watchQuery({ query: this.gqlQueriesService.GET_USER_INFO })
-      .valueChanges.subscribe(({ data }: any) => {
-        this.gqlQuery = data.viewer;
-        this.userData = this.profileTraitment.getAvatarInfo(this.gqlQuery);
-        console.log(this.userData);
+      .valueChanges.subscribe(({ data, loading }) => {
+        if (loading) {
+          alert("tzzzzzz");
+        }
+        this.gqlQuery = data;
+        this.userData = this.profileTraitment.getAvatarInfo(
+          this.gqlQuery.viewer
+        );
       });
   }
   // this.userData.sub

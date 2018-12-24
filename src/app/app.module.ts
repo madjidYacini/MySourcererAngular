@@ -1,4 +1,4 @@
-import { ProfileComponent } from "./profile/profile.component";
+import { ProfileComponent } from "./components/profile/profile.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
@@ -7,10 +7,48 @@ import { HttpLinkModule, HttpLink } from "apollo-angular-link-http";
 import { AppComponent } from "./app.component";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { setContext } from "apollo-link-context";
-import { CommitsViewComponent } from './commits-view/commits-view.component';
+import { CommitsViewComponent } from "./components/commits-view/commits-view.component";
+import { environment } from "../environments/environment";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatExpansionModule,
+  MatCardModule
+} from "@angular/material";
+import { MatGridListModule } from "@angular/material/grid-list";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { PieChartComponent } from "./components/pie-chart/pie-chart.component";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { RepositoriesComponent } from './components/repositories/repositories.component';
+import { OverviewComponent } from './components/overview/overview.component';
+
 @NgModule({
-  declarations: [AppComponent, ProfileComponent, CommitsViewComponent],
-  imports: [BrowserModule, HttpClientModule, ApolloModule, HttpLinkModule],
+  exports: [MatExpansionModule, FlexLayoutModule, MatGridListModule],
+  declarations: [
+    AppComponent,
+    ProfileComponent,
+    CommitsViewComponent,
+    PieChartComponent,
+    RepositoriesComponent,
+    OverviewComponent
+  ],
+  imports: [
+    MatGridListModule,
+    FlexLayoutModule,
+    BrowserModule,
+    HttpClientModule,
+    ApolloModule,
+    HttpLinkModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatExpansionModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatToolbarModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
@@ -20,12 +58,7 @@ export class AppModule {
       uri: "https://api.github.com/graphql"
     });
     const auth = setContext((_, { headers }) => {
-      // get the authentication token from local storage if it exists
-      const token = "0c19a28a750a7fd2f0fae95300b1658a810866c1";
-
-      // return the headers to the context so httpLink can read them
-      // in this example we assume headers property exists
-      // and it is an instance of HttpHeaders
+      const token = environment.REACT_APP_GITHUB_TOKEN;
       if (!token) {
         return {};
       } else {

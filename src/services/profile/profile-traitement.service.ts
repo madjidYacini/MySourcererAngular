@@ -13,7 +13,8 @@ export class ProfileTraitementService {
       following: avatar.following.totalCount,
       commits: arr[1],
       lineOfCode: arr[0],
-      avatarUrl: avatar.avatarUrl
+      avatarUrl: avatar.avatarUrl,
+      repositories: avatar.repositories.nodes.length
     };
 
     return user;

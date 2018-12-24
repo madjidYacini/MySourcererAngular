@@ -1,0 +1,33 @@
+<div>
+  <a href="google.com">
+    <img
+      src="{{ userData?.avatarUrl }}"
+      width="150"
+      height="150"
+      class="avatar"
+    />
+  </a>
+</div>
+
+<mat-grid-list cols="3" rowHeight="9:3">
+  <mat-grid-tile
+    ><mat-card>Name : {{ userData?.name }}</mat-card></mat-grid-tile
+  >
+  <mat-grid-tile
+    ><mat-card> Commits : {{ userData?.commits }}</mat-card></mat-grid-tile
+  >
+  <mat-grid-tile
+    ><mat-card>
+      Line Of Code : {{ userData?.lineOfCode }}</mat-card
+    ></mat-grid-tile
+  >
+  <mat-grid-tile>
+    <mat-card>Follower : {{ userData?.followers }}</mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card> Following : {{ userData?.following }}</mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>Repository Count : {{ userData?.repositories }}</mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

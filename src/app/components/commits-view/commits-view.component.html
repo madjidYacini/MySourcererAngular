@@ -1,0 +1,24 @@
+<mat-card>
+  <div fxLayout="column" fxLayout.xs="column" fxLayoutAlgin="center">
+    <div *ngFor="let stat of stats">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <p>
+              Name: <strong>{{ stat.language }}</strong>
+            </p>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-panel-description>
+          Commits: {{ stat.commits }}
+        </mat-panel-description>
+        <mat-panel-description>
+          Commits: {{ stat.lineOfCode }}
+        </mat-panel-description>
+      </mat-expansion-panel>
+    </div>
+
+    <div *ngIf="charged"><app-pie-chart [data]="stats"></app-pie-chart></div>
+  </div>
+</mat-card>

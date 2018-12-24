@@ -1,0 +1,22 @@
+body {
+  margin: 16px;
+}
+.mat-card {
+  width: 80%;
+  background-color: #f7f6de;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px;
+}
+
+.grid {
+  margin-top: -100px;
+}
+.grid2 {
+  margin-top: -500px;
+}
+.avatar {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 100px;
+}

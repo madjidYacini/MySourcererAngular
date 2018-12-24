@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { GqlQueriesService } from "../../../services/queries/gql-queries.service";
 import { OverviewService } from "../../../services/overview/overview.service";
 import { Apollo } from "apollo-angular";
-import { CommitsData } from "../../../interfaces/commitsData.i";
 import { Chart } from "chart.js";
 @Component({
   selector: "app-overview",

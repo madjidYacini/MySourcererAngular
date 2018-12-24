@@ -21,8 +21,8 @@ export class ProfileComponent implements OnInit {
       .watchQuery({ query: this.gqlQueriesService.GET_USER_INFO })
       .valueChanges.subscribe(({ data, loading }) => {
         if (loading) {
-          alert("tzzzzzz");
         }
+
         this.gqlQuery = data;
         this.userData = this.profileTraitment.getAvatarInfo(
           this.gqlQuery.viewer

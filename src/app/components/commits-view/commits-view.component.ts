@@ -11,12 +11,7 @@ import { CommitsData } from "../../../interfaces/commitsData.i";
 export class CommitsViewComponent implements OnInit {
   gqlQuery: any;
   stats: CommitsData[] = [];
-  commitsArray: number[] = [];
-  languages: string[] = [];
-  colors: string[] = [];
-  lineOCArr: number[] = [];
-  chart: any;
-  changeChart: boolean = false;
+  displayGraphs: boolean = false;
   charged: boolean = false;
   constructor(
     private apollo: Apollo,
@@ -33,5 +28,7 @@ export class CommitsViewComponent implements OnInit {
         this.charged = true;
       });
   }
-  test() {}
+  onClickMe() {
+    this.displayGraphs == true;
+  }
 }

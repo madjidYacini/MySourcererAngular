@@ -12,3 +12,26 @@ strong {
   color: red;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+button {
+  background-color: aqua;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.well {
+  background-color: aliceblue;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: 50px;
+  text-align: center;
+}
+h1 {
+  font-family: serif;
+}
+
+.well2 {
+  background-color: aliceblue;
+  height: 50px;
+  text-align: center;
+}
